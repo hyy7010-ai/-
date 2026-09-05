@@ -1,0 +1,9 @@
+{
+  "name": " 真心  1",
+  "description": "一个反快餐、重深度的恋爱辅助工具，包含AI清醒闺蜜、真心塔罗和三观预审社交。",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation",
+    "microphone"
+  ]
+}

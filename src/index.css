@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --color-sunset-purple: #2E0854;
+  --color-sunset-orange: #FF8C00;
+  --color-aurora-pink: #FFB6C1;
+  --color-aurora-blue: #87CEEB;
+  --color-neon-green: #CCFF00;
+}
+
+@layer base {
+  body {
+    @apply bg-sunset-purple text-white min-h-screen font-sans antialiased;
+    background: linear-gradient(135deg, #2E0854 0%, #4B0082 50%, #FF8C00 100%);
+    background-attachment: fixed;
+    /* Prevent mobile bounce/over-scroll if needed */
+    overscroll-behavior: none;
+  }
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-xl shadow-2xl;
+}
+
+.glass-pink {
+  @apply bg-white/10 backdrop-blur-xl shadow-2xl;
+}
+
+.mobile-h-nav {
+  @apply h-16 md:h-20;
+}
+
+.mobile-text-title {
+  @apply text-xl md:text-3xl;
+}
+
+.mobile-px {
+  @apply px-4 md:px-8;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; box-shadow: 0 0 5px rgba(204, 255, 0, 0.2); }
+  50% { opacity: 0.8; box-shadow: 0 0 20px rgba(204, 255, 0, 0.5); }
+}
+
+.animate-breathe {
+  animation: breathe 3s infinite ease-in-out;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+  text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; filter: blur(10px); }
+  50% { transform: scale(1.2); opacity: 1; filter: blur(20px); }
+}
+
+.glow-point {
+  background: radial-gradient(circle, #fff 0%, #FFB6C1 40%, transparent 70%);
+  animation: glow-pulse 4s infinite ease-in-out;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
